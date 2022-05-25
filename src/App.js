@@ -7,12 +7,12 @@ export class App extends React.Component {
         return (
             <div>
                 <Hello />
-                <Welcome age={26}/>
+                <Welcome name={<strong>Amalia</strong>} age={26}/>
             </div>
         )
     }
 }
 
-Welcome.defaultProps = {
-    name: 'Victor',
-}
+// Welcome.defaultProps = {
+//     name: 'Victor',
+// }
