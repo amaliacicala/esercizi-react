@@ -1,0 +1,1 @@
+Extract the button within a new component called `CounterButton` and render it within the `ClickCounter` component. How can you pass the `onClick` event handler to the `CounterButton` component?
