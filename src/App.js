@@ -1,6 +1,7 @@
 import React from "react";
 import { InteractiveWelcome } from "./InteractiveWelcome";
 import { Login } from "./Login";
+import { UncontrolledLogin } from "./UncontrolledLogin";
 
 export class App extends React.Component {
     render() {
@@ -8,6 +9,7 @@ export class App extends React.Component {
             <div>
                 <InteractiveWelcome />
                 <Login />
+                <UncontrolledLogin />
             </div>
         )
     }

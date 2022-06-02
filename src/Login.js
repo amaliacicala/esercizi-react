@@ -39,6 +39,7 @@ export class Login extends React.Component {
     render() {
         return (
             <fieldset>
+                <legend><h3>Controlled Login</h3></legend>
                 <div>
                     <label htmlFor="username">Username:</label>
                     <input
