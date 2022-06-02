@@ -18,6 +18,14 @@ export class Login extends React.Component {
         })
     }
 
+    onReset = (event) => {
+        this.setState({
+            username: '',
+            password: '',
+            remember: false
+        })
+    }
+
     onLogin = (event) => {
         this.setState({
             username: '',
@@ -62,6 +70,10 @@ export class Login extends React.Component {
                 </div>
 
                 <div>
+                    <button onClick={this.onReset}>
+                        Reset
+                    </button>
+
                     <button onClick={this.onLogin} disabled={!this.state.value && !this.state.remember === true}>
                         Login
                     </button>
