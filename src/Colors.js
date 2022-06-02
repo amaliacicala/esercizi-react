@@ -5,8 +5,8 @@ export class Colors extends React.Component {
         return (
             <div>
                 <ul>
-                    {this.props.colors.map((name, id) => (
-                        <li key={id}>{name}</li>
+                    {this.props.colors.map((name, index) => (
+                        <li key={index}>{name}</li>
                     ))}
                     </ul>
             </div>
