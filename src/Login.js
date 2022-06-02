@@ -18,6 +18,16 @@ export class Login extends React.Component {
         })
     }
 
+    onLogin = (event) => {
+        this.setState({
+            username: '',
+            password: '',
+            remember: ''
+        })
+
+        console.log(this.state)
+    }
+
     render() {
         return (
             <fieldset>
@@ -49,6 +59,12 @@ export class Login extends React.Component {
                         checked={this.state.remember}
                         onChange={this.handleInputChange}
                     />
+                </div>
+
+                <div>
+                    <button onClick={this.onLogin} disabled={!this.state.value && !this.state.remember === true}>
+                        Login
+                    </button>
                 </div>
             </fieldset>
         )
