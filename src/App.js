@@ -1,15 +1,11 @@
 import React from "react";
-import { InteractiveWelcome } from "./InteractiveWelcome";
-import { Login } from "./Login";
-import { UncontrolledLogin } from "./UncontrolledLogin";
+import { Colors } from "./Colors";
 
 export class App extends React.Component {
     render() {
         return (
             <div>
-                <InteractiveWelcome />
-                <Login />
-                <UncontrolledLogin />
+                <Colors colors={['Yellow', 'White', 'Purple', 'Black']}/>
             </div>
         )
     }
