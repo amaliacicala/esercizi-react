@@ -16,7 +16,7 @@ export class TodoList extends React.Component {
         })
     }
 
-    handleAddTask = (event) => {    
+    handleAddTask = (event) => {          
         this.setState({
             task: event.target.value
         })
