@@ -10,7 +10,6 @@ export class TodoList extends React.Component {
         ]
     }
 
-
     handleAddTask = (event) => {
         event.preventDefault()
 
@@ -21,6 +20,12 @@ export class TodoList extends React.Component {
 
         this.state.items.push(value)
         event.target.elements.taskInput.value = ''
+    }
+
+    handleReset = (event) => {
+        this.setState({
+            items: []
+        })
     }
 
     render() {
@@ -42,6 +47,13 @@ export class TodoList extends React.Component {
                     <button 
                         type="submit"
                     >Add Task</button>
+
+                    <button
+                        type="button"
+                        onClick={this.handleReset}
+                    >
+                        Reset
+                    </button>
                 </form>
             </div>
         )
