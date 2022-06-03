@@ -2,7 +2,7 @@ import React from "react";
 
 export class TodoList extends React.Component {
     state = {
-        todos: [
+        items: [
             'Buy groceries',
             'Study React',
             'Feed the cat',
@@ -11,17 +11,21 @@ export class TodoList extends React.Component {
     }
 
     handleInputChange = (event) => {
+        const value = event.target.value 
+
         this.setState({
-            task: event.target.value
+            item: value
         })
     }
 
-    handleAddTask = (event) => {          
+    handleAddTask = (event) => {   
+        const value = event.target.value 
+       
         this.setState({
-            task: event.target.value
+            item: value
         })
 
-        this.state.todos.push(this.state.task)
+        this.state.items.push(this.state.item)
     }
 
     render() {
@@ -29,7 +33,7 @@ export class TodoList extends React.Component {
             <div>
                 <div>
                     <ul>
-                        {this.state.todos.map((todo, index) => (
+                        {this.state.items.map((todo, index) => (
                             <li key={index}>{todo}</li>
                         ))}
                     </ul>
@@ -38,12 +42,13 @@ export class TodoList extends React.Component {
                 <div>
                     <input 
                         name="newTask"
+                        value={this.state.newTask}
                         onChange={this.handleInputChange}
                     />
 
                     <button 
                         onClick={this.handleAddTask}
-                        disabled={!this.state.task}
+                        disabled={!this.state.items}
                     >Add Task</button>
                 </div>
             </div>
