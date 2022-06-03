@@ -10,22 +10,17 @@ export class TodoList extends React.Component {
         ]
     }
 
-    handleInputChange = (event) => {
-        const value = event.target.value 
 
-        this.setState({
-            item: value
-        })
-    }
+    handleAddTask = (event) => {
+        event.preventDefault()
 
-    handleAddTask = (event) => {   
-        const value = event.target.value 
-       
+        const value = event.target.elements.taskInput.value
         this.setState({
             item: value
         })
 
-        this.state.items.push(this.state.item)
+        this.state.items.push(value)
+        event.target.elements.taskInput.value = ''
     }
 
     render() {
@@ -33,24 +28,21 @@ export class TodoList extends React.Component {
             <div>
                 <div>
                     <ul>
-                        {this.state.items.map((todo, index) => (
-                            <li key={index}>{todo}</li>
+                        {this.state.items.map((item, index) => (
+                            <li key={index}>{item}</li>
                         ))}
                     </ul>
                 </div>
 
-                <div>
+                <form onSubmit={this.handleAddTask}>
                     <input 
-                        name="newTask"
-                        value={this.state.newTask}
-                        onChange={this.handleInputChange}
+                        name="taskInput"
                     />
 
                     <button 
-                        onClick={this.handleAddTask}
-                        disabled={!this.state.items}
+                        type="submit"
                     >Add Task</button>
-                </div>
+                </form>
             </div>
         )
     }
