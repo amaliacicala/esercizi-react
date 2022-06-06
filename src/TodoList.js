@@ -20,11 +20,21 @@ export class TodoList extends React.Component {
 
         this.state.items.push(value)
         event.target.elements.taskInput.value = ''
+
+        console.log(this.state)
     }
 
-    handleReset = (event) => {
+    handleReset = () => {
         this.setState({
             items: []
+        })
+    }
+
+    handleRemove = (index) => {
+        let newItems = [...this.state.items]
+        newItems.splice(index, 1)
+        this.setState({
+            items: newItems
         })
     }
 
@@ -34,7 +44,9 @@ export class TodoList extends React.Component {
                 <div>
                     <ul>
                         {this.state.items.map((item, index) => (
-                            <li key={index}>{item}</li>
+                            <li key={index}>{item}
+                                <button type="button" onClick={this.handleRemove.bind(this, index)}>Remove</button>
+                            </li>
                         ))}
                     </ul>
                 </div>
