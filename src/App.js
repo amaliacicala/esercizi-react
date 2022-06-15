@@ -1,14 +1,22 @@
 import React from "react";
-import { ClickCounter } from "./ClickCounter";
 import { Login } from "./Login";
+import { Counter } from "./Counter";
+import { useState } from 'react';
+import { ClickCounter } from "./ClickCounter";
 
-export class App extends React.Component {
-    render() {
-        return (
-            <div>
-                <ClickCounter />
-                <Login />
-            </div>
-        )
+export function App() {
+    const [showCounter, setShowCounter] = useState(true)
+
+    function toggleCounter() {
+        setShowCounter(show => !show)
     }
+
+    return (
+        <div>
+            <button onClick={toggleCounter}>Unmount Counter</button>
+            {showCounter && <Counter />}
+            <Login />
+            <ClickCounter />
+        </div>
+    )
 }

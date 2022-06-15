@@ -6,6 +6,14 @@ export function ClickCounter({ initialValue = 0 }) {
 
     useEffect(onCounterChange, [counter])
 
+    useEffect(() => {
+        console.log('Counter has mounted')
+
+        return () => {
+            console.log('Counter is about to be unmounted')
+        }
+    }, [])
+
     function onCounterChange() {
         return console.log(`The counter is now ${counter}`)
     }
