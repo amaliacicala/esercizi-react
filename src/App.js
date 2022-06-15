@@ -1,8 +1,8 @@
 import React from "react";
-import { Login } from "./Login";
 import { Counter } from "./Counter";
 import { useState } from 'react';
 import { ClickCounter } from "./ClickCounter";
+import { GithubUser } from "./GithubUser";
 
 export function App() {
     const [showCounter, setShowCounter] = useState(true)
@@ -13,9 +13,9 @@ export function App() {
 
     return (
         <div>
-            <button onClick={toggleCounter}>Unmount Counter</button>
+            <GithubUser />
             {showCounter && <Counter />}
-            <Login />
+            <button onClick={toggleCounter}>Unmount Counter</button>
             <ClickCounter />
         </div>
     )
