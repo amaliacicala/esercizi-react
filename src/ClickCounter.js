@@ -1,31 +1,14 @@
-import React from "react";
-import { useEffect, useState } from 'react';
+import { useCounter } from './hooks/useCounter'
 
 export function ClickCounter({ initialValue = 0 }) {
-    const [counter, setCounter] = useState(initialValue)
-
-    useEffect(onCounterChange, [counter])
-
-    useEffect(() => {
-        console.log('Counter has mounted')
-
-        return () => {
-            console.log('Counter is about to be unmounted')
-        }
-    }, [])
-
-    function onCounterChange() {
-        return console.log(`The counter is now ${counter}`)
-    }
-
-    function incrementCount() {
-        setCounter((c) => c + 1)
-    }
+    const { counter, onIncrement, onDecrement, onReset } = useCounter(initialValue)
 
     return (
         <div>
             <h3>Count: {counter}</h3>
-            <button onClick={incrementCount}>Increment</button>
+            <button onClick={onIncrement}>Increment</button>
+            <button onClick={onDecrement}>Decrement</button>
+            <button onClick={onReset}>Reset</button>
         </div>
     )
 }
