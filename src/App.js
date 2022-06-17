@@ -3,6 +3,7 @@ import { Welcome } from "./Welcome";
 import { Counter } from "./Counter";
 import { Route, Routes, Link } from "react-router-dom";
 import { ShowGithubUser } from "./ShowGithubUser";
+import { NotFound } from "./NotFound";
 
 export function App() {
     return (
@@ -17,6 +18,7 @@ export function App() {
 
         <Routes>
             <Route path="/" element={<Welcome name={<em>earthling</em>} />} />
+            <Route path="*" element={<NotFound />} />
             <Route path="/counter" element={<Counter />} />
             <Route path="users:username" element={<ShowGithubUser />} />
         </Routes>
