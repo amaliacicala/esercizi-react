@@ -1,10 +1,10 @@
 import React from "react";
-import { FilteredList } from "./FilteredList";
+import { CarDetails } from "./CarDetails";
 
 export function App() {
     return (
         <div>
-            <FilteredList />
-        </div>
+            <CarDetails initialData={{ model: 'Fiat Panda', year: '1980', color: 'Red' }} />
+        </div> 
     )
 }
