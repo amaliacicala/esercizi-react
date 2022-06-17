@@ -8,14 +8,16 @@ export function Welcome({ name }) {
         navigate('/counter')
     }
 
+    function handleGithubBtnClick() {
+        navigate('/users:username')
+    }
+
     return (
         <div>
             <h1>Welcome, {name}!</h1>
             {/* <Link to="/counter">Access counter</Link> */}
-            <button 
-                style={{backgroundColor:'dodgerblue', padding:'0.5rem 1rem', border:'none', fontSize:'1rem', cursor:'pointer'}}
-                onClick={handleCounterBtnClick}
-            >Access counter</button>
+            <button className="nav-btn" onClick={handleCounterBtnClick}>Access counter</button>
+            <button className="nav-btn" onClick={handleGithubBtnClick}>Show Github User</button>
         </div>
     )
 }
