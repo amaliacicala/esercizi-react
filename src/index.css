@@ -1,4 +1,11 @@
 .container {
-    background-color: white;
-    border: solid 2px red;
+    background-color: lightblue;
+    border: solid 0.5rem dodgerblue;
+    padding: 2rem;
+    font-family: sans-serif;
+}
+
+select {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
 }
