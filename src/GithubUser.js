@@ -1,10 +1,16 @@
 import { useGithubUser } from "./hooks/useGithubUser"
 
-export function GithubUser({ username }) {
-    const { data, error, isLoading } = useGithubUser(username)
+export function GithubUser({ username = 'amaliacicala' }) {
+    const { data, error, isLoading, onFetchUser } = useGithubUser(username)
+
+    function handleFetchUser() {
+        onFetchUser()
+    }
 
     return (
-        <div style={{marginTop:'2rem'}}>            
+        <div style={{marginTop:'2rem'}}>
+            <button onClick={handleFetchUser}>Fetch User</button>
+            
             {!!isLoading && <h3>Loading...</h3>} {/* ho aggiunto `!!` perché ritornava uno 0 sulla pagina */}
             {error && <h3>Error</h3>}
             {data &&
