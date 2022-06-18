@@ -16,8 +16,8 @@ export function Welcome({ name }) {
         <div>
             <h1>Welcome, {name}!</h1>
             {/* <Link to="/counter">Access counter</Link> */}
-            <button className="nav-btn" onClick={handleCounterBtnClick}>Access counter</button>
-            <button className="nav-btn" onClick={handleGithubBtnClick}>Show Github User</button>
+            {/* <button className="nav-btn" onClick={handleCounterBtnClick}>Access counter</button>
+            <button className="nav-btn" onClick={handleGithubBtnClick}>Show Github User</button> */}
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export function GithubUser({ username = 'amaliacicala' }) {
+export function GithubUser({ username }) {
     const [data, setData] = useState()
     
     useEffect(() => {
