@@ -1,26 +1,27 @@
-import { createStore } from "redux";
+import { combineReducers, createStore } from "redux";
 import { counterReducer, incrementCount, resetCount } from "./CounterState";
 import { todosReducer, addTodo, removeTodo, editTodo } from "./TodosReducer";
 
-// export const store = createStore(counterReducer)
+const rootReducer = combineReducers({
+    counter: counterReducer,
+    todos: todosReducer
+})
 
-// store.subscribe(() => {
-//     console.log(store.getState())
-// })
-
-// store.dispatch(resetCount())
-// store.dispatch(incrementCount(5))
-// store.dispatch(incrementCount(2))
-// store.dispatch(incrementCount(3))
-
-export const store = createStore(todosReducer)
+export const store = createStore(rootReducer)
 
 store.subscribe(() => {
     console.log(store.getState())
 })
 
-store.dispatch(addTodo(1, 'Have breakfast', false))
+// counter dispatch actions
+store.dispatch(resetCount())
+store.dispatch(incrementCount(5))
+store.dispatch(incrementCount(2))
+store.dispatch(incrementCount(3))
+
+// todos dispatch actions
+store.dispatch(addTodo(1, 'Have breakfast', true))
 store.dispatch(addTodo(2, 'Study Redux', false))
 store.dispatch(addTodo(3, 'Go to sleep', false))
-store.dispatch(editTodo(1, 'Have breakfast', true))
-store.dispatch(removeTodo(1))
+store.dispatch(editTodo(2, 'Study Redux', true))
+store.dispatch(removeTodo(2))
