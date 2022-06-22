@@ -30,25 +30,11 @@ export class TodoList extends React.Component {
         })
     }
 
-    handleRemove = (index) => {
-        let newItems = [...this.state.items]
-        newItems.splice(index, 1)
-        this.setState({
-            items: newItems
-        })
-    }
-
     render() {
         return (
             <div>
                 <div>
-                    <ul>
-                        {this.state.items.map((item, index) => (
-                            <li key={index}>{item}
-                                <button type="button" onClick={this.handleRemove.bind(this, index)}>Remove</button>
-                            </li>
-                        ))}
-                    </ul>
+                    {this.props.render(this.state.items)}
                 </div>
 
                 <form onSubmit={this.handleAddTask}>
